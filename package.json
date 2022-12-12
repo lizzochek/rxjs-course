@@ -1,0 +1,28 @@
+{
+  "name": "rxjs-tasks",
+  "version": "1.0.0",
+  "description": "Tasks for learning RxJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lizzochek/rxjs-tasks.git"
+  },
+  "author": "Yelyzaveta Dolhova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lizzochek/rxjs-tasks/issues"
+  },
+  "homepage": "https://github.com/lizzochek/rxjs-tasks#readme",
+  "dependencies": {
+    "rxjs": "^7.5.7"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.19.4",
+    "babel-jest": "^29.2.2",
+    "jest": "^29.2.2",
+    "jest-marbles": "^3.0.3"
+  }
+}
