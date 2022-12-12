@@ -4,11 +4,10 @@ const rx = require('rxjs');
 // Solve a FizzBuzz problem using Observable
 // Use the IndexedWord utility class; Use a chain of map in order to make it fully functional
 
-const fizzBuzz = (i) => {
-  if (i % 3 === 0 && i % 5 === 0) console.log('FizzBuzz');
-  else if (i % 3 === 0) console.log('Fizz');
-  else if (i % 5 === 0) console.log('Buzz');
-  else console.log(i);
-};
-
-rx.range(1, 50).pipe(rx.map(fizzBuzz)).subscribe();
+rx.range(1, 50)
+  .pipe(
+    rx.map((x) => (x % 3 === 0 && x % 5 === 0 ? 'FizzBuzz' : x)),
+    rx.map((x) => (x % 3 === 0 ? 'Fizz' : x)),
+    rx.map((x) => (x % 5 === 0 ? 'Buzz' : x))
+  )
+  .subscribe((x) => console.log(x));
