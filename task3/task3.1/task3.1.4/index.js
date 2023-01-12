@@ -7,6 +7,12 @@ const { UploadService } = require('./uploadService');
 
 const client = new Client();
 const uploadService = new UploadService(client);
-const res = uploadService.upload(rx.from([...Array(120).keys()]));
+const result = uploadService.upload(rx.from([...Array(12).keys()]));
 
-res.subscribe((x) => console.log('Task 3.1.4: ' + x));
+result.subscribe({
+  next: (x) => console.log('Task 3.1.4: ' + x),
+});
+
+module.exports = {
+  result,
+};

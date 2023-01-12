@@ -9,5 +9,9 @@ const { DB } = require('./db');
 // Therefore, as an engineer you have to make sure that the whole operation is resilient and ensures atomicity and consistency in both stores.
 
 const integ = new DBIntegration(new DB('oracledb'), new DB('mysqldb'));
-const res = integ.storeToDBs(rx.of('some data'));
-res.subscribe((x) => console.log('Res: ' + JSON.stringify(x)));
+const result = integ.storeToDBs(rx.of('some data'));
+result.subscribe((x) => console.log('Res: ' + JSON.stringify(x)));
+
+module.exports = {
+  result,
+};

@@ -7,5 +7,9 @@ const { ServersCatalog } = require('./serversCatalog');
 const catalogue = new ServersCatalog();
 const server = new MediaServer(catalogue);
 
-const res = server.findVideo('video');
-res.subscribe((x) => console.log('Observable 3.1.2: ' + JSON.stringify(x)));
+const result = server.findVideo('video');
+result.subscribe((x) => console.log('Observable 3.1.2: ' + JSON.stringify(x)));
+
+module.exports = {
+  result,
+};

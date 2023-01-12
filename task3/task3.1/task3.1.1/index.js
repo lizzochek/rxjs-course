@@ -7,7 +7,7 @@ const { ProductsCatalog } = require('./productsCatalog');
 // so it provides you with the most expensive product in the given order
 
 const catalog = new ProductsCatalog();
-const order = new Order(1, 2, [10, 20, 30], catalog);
+const order = new Order(1, 2, [10, 30, 20], catalog);
 
 const userActivityUtils = (productsCatalog, order) => {
   return rx.from(order.productsIds).pipe(
@@ -29,3 +29,8 @@ const totalPrice = order.getTotalPrice();
 totalPrice.subscribe((x) =>
   console.log('Observable 3.1.1: total price ' + JSON.stringify(x))
 );
+
+module.exports = {
+  res,
+  totalPrice,
+};

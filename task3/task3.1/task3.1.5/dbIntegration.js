@@ -26,6 +26,7 @@ class DBIntegration {
           rx.mergeMap((transactions) => {
             // Ensure Transaction is rolled back in case of failure
             // Ensure All transactions are rolled back in case any of written operations has failed
+            console.log(transactions);
             if (!transactions[0].success || !transactions[1].success) {
               this.oracledb.rollbackTransaction(transactions[0].transactionId);
               this.mysqldb.rollbackTransaction(transactions[1].transactionId);
@@ -45,30 +46,29 @@ class DBIntegration {
       // Open db
       const res = db.open().pipe(
         // Retry connection opening if it has failed (connection opening is retryable operation)
-        rx.retry(3),
-        rx.catchError((err) => new Error())
+        rx.retry(3)
       );
       res.subscribe((x) => console.log(x));
       // Create a connection
       const connection = new Connection();
       // Write data
-      connection
-        .write(dataSource)
-        .pipe(rx.catchError((err) => new Error()))
-        .subscribe((x) => console.log(x));
+      connection.write(dataSource).subscribe((x) => console.log(x));
       // Close connection
       connection.close().subscribe((x) => console.log(x));
 
       // If everything worked fine send positive result
       return (
+        // For testing, we will habe transaction IDs the same
+        // Math.floor(Math.random() * 10000
         rx
-          .of(new Result().ok(Math.floor(Math.random() * 10000), db.name))
+
+          .of(new Result().ok(1000, db.name))
           // Ensure Transaction lasts less than 1 sec
           .pipe(rx.timeout(1000))
       );
     } catch (err) {
       // In case of errors, send negative result
-      return rx.of(new Result().error(db.name));
+      return rx.of(new Result().error(db?.name));
     }
   };
 }
