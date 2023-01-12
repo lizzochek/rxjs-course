@@ -6,6 +6,9 @@ const fs = require('fs');
 // Use .observeOn for that purpose.
 // observeOn() simply changes the thread of all operators further Downstream
 
+// В отличие от subscribeOn(), имеет значение, куда в цепочку вы помещаете функцию observeOn(),
+// так как этот оператор только изменяет поток, который используется observables, которые следуют ниже.
+
 const a = rx.from([1, 2, 3]).pipe(rx.observeOn(rx.asyncScheduler));
 const b = rx.from([4, 5, 6]);
 

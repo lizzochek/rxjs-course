@@ -4,8 +4,7 @@ const fs = require('fs');
 // Task 2.2.5
 // There is a stream of blocking calls.
 // Ensure every call is executed in non-blocking (means moving call on another Thread)
-// way and will not block other executions. Ensure that pool is not going over 256
-// created Threads
+// way and will not block other executions.
 // Use subscribeOn()
 
 // subscribeOn asynnc scheduler will allow asynchronous behaviour which will not

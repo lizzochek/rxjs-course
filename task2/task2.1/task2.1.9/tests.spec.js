@@ -1,6 +1,6 @@
 const { readFile } = require('./index');
 
-describe('Task 2.1.8', () => {
+describe('Task 2.1.9', () => {
   it('Returns values', (done) => {
     const res = [];
     const observable = readFile('text.txt');
