@@ -12,8 +12,12 @@ const fs = require('fs');
 var source = rx.interval(500).pipe(rx.take(12));
 
 // Let's suppose we don't need odd numbers
-const subscription = source
-  .pipe(rx.throttle(() => rx.interval(700)))
-  .subscribe({
-    next: (x) => console.log(`Observable 2.3.1: ` + x),
-  });
+const result = source.pipe(rx.throttle(() => rx.interval(700)));
+
+result.subscribe({
+  next: (x) => console.log(`Observable 2.3.1: ` + x),
+});
+
+module.exports = {
+  result,
+};
