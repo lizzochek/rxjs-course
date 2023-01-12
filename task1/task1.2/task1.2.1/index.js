@@ -19,11 +19,10 @@ const observable = new rx.Observable((subscriber) => {
   subscriber.next(12);
   subscriber.next({ name: 'Liza', surname: 'Dolhova' });
   subscriber.next([1, 2, 3, 4, 5]);
-})
-  .pipe(rx.map((x) => stringify(x)))
-  .subscribe((x) =>
-    console.log(`Observer 1.2.1: ` + x + ' of type ' + typeof x)
-  );
+}).pipe(rx.map((x) => stringify(x)));
+// .subscribe((x) =>
+//   console.log(`Observer 1.2.1: ` + x + ' of type ' + typeof x)
+// );
 
 module.exports = {
   observable,

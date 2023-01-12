@@ -13,10 +13,10 @@ const observable = new rx.Observable((subscriber) => {
   subscriber.complete();
 });
 
-const result = observable
-  .pipe(rx.toArray())
-  .subscribe((x) => console.log('Observer 1.2.8: ' + x));
+const result = observable.pipe(rx.toArray());
+
+result.subscribe((x) => console.log('Observer 1.2.8: ' + x));
 
 module.exports = {
-  observable,
+  result,
 };

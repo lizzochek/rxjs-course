@@ -13,11 +13,12 @@ const observable = new rx.Observable((subscriber) => {
   subscriber.complete();
 });
 
-const result = observable.pipe(rx.ignoreElements()).subscribe({
-  next: (x) => console.log(x),
+const result = observable.pipe(rx.ignoreElements());
+
+result.subscribe({
   complete: () => console.log('Observable 1.2.9: completed'),
 });
 
 module.exports = {
-  observable,
+  result,
 };

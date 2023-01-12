@@ -19,5 +19,5 @@ const result = observable.pipe(rx.reduce((acc, curr) => acc + curr, 0));
 result.subscribe((x) => console.log('Observer 1.2.6: ' + x));
 
 module.exports = {
-  observable,
+  result,
 };

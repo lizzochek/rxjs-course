@@ -9,9 +9,8 @@ const observable = new rx.Observable((subscriber) => {
   subscriber.next('aaa');
   subscriber.next('aaaaa');
   subscriber.next('aaaaaaaaa');
-})
-  .pipe(rx.filter((x) => x.length > 3))
-  .subscribe((x) => console.log(`Observer 1.2.2: ` + x));
+}).pipe(rx.filter((x) => x.length > 3));
+// .subscribe((x) => console.log(`Observer 1.2.2: ` + x));
 
 module.exports = {
   observable,

@@ -10,10 +10,10 @@ const observable = new rx.Observable((subscriber) => {
   subscriber.next('def');
 });
 
-const result = observable
-  .pipe(rx.mergeMap((x) => rx.pipe(x)))
-  .subscribe((x) => console.log(`Observer 1.2.3: ` + x));
+const result = observable.pipe(rx.mergeMap((x) => rx.pipe(x)));
+result.subscribe((x) => console.log(`Observer 1.2.3: ` + x));
 
 module.exports = {
   observable,
+  result,
 };

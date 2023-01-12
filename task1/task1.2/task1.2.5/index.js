@@ -20,10 +20,10 @@ const doBusinessLogic = rx.map((x) => {
   return x.toUpperCase();
 });
 
-const tranformObservable = observable
-  .pipe(validate, doBusinessLogic)
-  .subscribe((x) => console.log('Observable 1.2.5: ' + x));
+const tranformObservable = observable.pipe(validate, doBusinessLogic);
+
+tranformObservable.subscribe((x) => console.log('Observable 1.2.5: ' + x));
 
 module.exports = {
-  observable,
+  tranformObservable,
 };
