@@ -13,3 +13,7 @@ shared.subscribe((y) => console.log('Observable 2.6.2: sub B: ', y));
 setTimeout(() => {
   shared.subscribe((y) => console.log('Observable 2.6.2: sub C: ', y));
 }, 5000);
+
+module.exports = {
+  shared,
+};

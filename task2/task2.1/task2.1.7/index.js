@@ -14,9 +14,11 @@ const combineObservable = number.pipe(
   rx.map(([number, letter]) => ({ number, letter })),
   rx.take(4)
 );
-combineObservable.subscribe((x) =>
-  console.log('Observable 2.1.7: ' + JSON.stringify(x))
-);
+
+// Comment before running test
+// combineObservable.subscribe((x) =>
+//   console.log('Observable 2.1.7: ' + JSON.stringify(x))
+// );
 
 module.exports = {
   combineObservable,

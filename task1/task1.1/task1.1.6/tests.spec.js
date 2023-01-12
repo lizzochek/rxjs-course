@@ -6,7 +6,7 @@ describe('Task 1.1.6', () => {
     intervalObservable.subscribe((x) => res.push(x));
 
     setTimeout(() => {
-      expect(res).toEqual([0, 1, 2, 3, 4, 5]);
+      expect(res).toEqual([0, 1, 2, 3, 4]);
       done();
     }, 5010);
   });

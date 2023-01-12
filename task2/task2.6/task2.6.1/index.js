@@ -17,3 +17,7 @@ const source = rx.interval(1000).pipe(
 source.subscribe((x) => console.log('subscription 1: ', x));
 source.subscribe((x) => console.log('subscription 2: ', x));
 source.subscribe((x) => console.log('subscription 3: ', x));
+
+module.exports = {
+  source,
+};
