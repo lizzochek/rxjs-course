@@ -24,3 +24,7 @@ const subscribeOnObservable = rx.interval(1000).pipe(
 console.log('Observable 2.5.5: begin');
 subscribeOnObservable.subscribe((x) => console.log('Observable 2.5.5: ' + x));
 console.log('Observable 2.5.5: end');
+
+module.exports = {
+  subscribeOnObservable,
+};

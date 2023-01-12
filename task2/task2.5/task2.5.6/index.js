@@ -19,3 +19,7 @@ const lowercaseStuff = stuff.pipe(
 );
 
 lowercaseStuff.subscribe((x) => console.log(`Observable 2.5.6: ` + x));
+
+module.exports = {
+  lowercaseStuff,
+};

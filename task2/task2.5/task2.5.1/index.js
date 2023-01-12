@@ -7,3 +7,7 @@ const fs = require('fs');
 
 const example = rx.empty().pipe(rx.defaultIfEmpty('Observable 2.5.1: Empty!'));
 const subscribe = example.subscribe((val) => console.log(val));
+
+module.exports = {
+  example,
+};
