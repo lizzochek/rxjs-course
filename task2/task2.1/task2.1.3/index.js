@@ -5,7 +5,7 @@ const rx = require('rxjs');
 // are corresponding to the order in which Observers are merged.
 // Use .concat
 
-const timer = rx.interval(1000).pipe(rx.take(5));
+const timer = rx.interval(1000).pipe(rx.take(3));
 const array = rx.from([1, 2, 3]);
 const merged = rx.concat(timer, array);
 

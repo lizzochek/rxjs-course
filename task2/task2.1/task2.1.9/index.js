@@ -32,11 +32,16 @@ const getReadLine = (fileName) => {
 };
 
 const readFile = (fileName) => {
-  rx.using(
+  return rx.using(
     () => getReadLine(fileName),
     (output) => rx.from(output)
-  ).subscribe({ next: console.log });
+  );
 };
 
 console.log('Observable 2.1.9: reading file');
-readFile('text.txt');
+const res = readFile('text.txt');
+res.subscribe({ next: console.log });
+
+module.exports = {
+  readFile,
+};

@@ -4,7 +4,7 @@ const rx = require('rxjs');
 // Merge several sources into a single Observable
 // Use .merge
 
-const timer = rx.interval(1000).pipe(rx.take(5));
+const timer = rx.interval(1000).pipe(rx.take(3));
 const array = rx.from([1, 2, 3]);
 const merged = rx.merge(timer, array);
 

@@ -12,7 +12,7 @@ const letter = rx.from(['A', 'B', 'C']);
 const combineObservable = number.pipe(
   rx.combineLatestWith(letter),
   rx.map(([number, letter]) => ({ number, letter })),
-  rx.take(5)
+  rx.take(4)
 );
 combineObservable.subscribe((x) =>
   console.log('Observable 2.1.7: ' + JSON.stringify(x))
