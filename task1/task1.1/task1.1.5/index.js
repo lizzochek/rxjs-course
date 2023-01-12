@@ -7,9 +7,9 @@ const someFunction = (value, callback) => {
 };
 const bindedCallback = rx.bindCallback(someFunction);
 const callbackObservable = bindedCallback(1);
-callbackObservable.subscribe({
-  next: (val) => console.log('Observable 1.5: ', val),
-});
+// callbackObservable.subscribe({
+//   next: (val) => console.log('Observable 1.5: ', val),
+// });
 
 module.exports = {
   callbackObservable,

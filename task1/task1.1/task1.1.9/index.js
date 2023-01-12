@@ -5,20 +5,16 @@ const rx = require('rxjs');
 
 const emptyObservable = rx.EMPTY;
 
-emptyObservable.subscribe({
-  next: () => console.log('Observer 1.9: next'),
-  complete: () => console.log('Observer 1.9: complete'),
-});
+// emptyObservable.subscribe({
+//   complete: () => console.log('Observer 1.9: complete'),
+// });
 
 // Create Observable that emits no signals and never completes
-const info = () => console.log('Will never be called');
-
 const neverObservable = rx.NEVER;
-neverObservable.subscribe({
-  next: (x) => console.log(x),
-  error: info,
-  complete: info,
-});
+// neverObservable.subscribe({
+//   error: () => console.log('Will never be called');,
+//   complete: () => console.log('Will never be called');,
+// });
 
 module.exports = {
   emptyObservable,

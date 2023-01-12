@@ -19,11 +19,13 @@ const fibonacci = (count) => {
   return res;
 };
 
-const fibonacciObservable = rx.from(fibonacci(19)).subscribe({
-  next: (val) => console.log('Fibonacci Observable v1: ', val),
-});
+const fibonacciObservable = rx.from(fibonacci(19));
+// .subscribe({
+//   next: (val) => console.log('Fibonacci Observable v1: ', val),
+// });
 
 // Version 2
+
 let prevNum;
 const fibonacciIterator = (curNum) => {
   let nextTerm;
@@ -39,15 +41,15 @@ const fibonacciIterator = (curNum) => {
 
 prevNum = 0;
 const fibonacciObservable2 = rx.generate({
-  initialState: 0,
+  initialState: 1,
   condition: (x) => x < 6766,
   iterate: fibonacciIterator,
   fibonacciObservable2Selector: (x) => x,
 });
 
-const sequenceArray = [];
-fibonacciObservable2.subscribe((x) => sequenceArray.push(x));
-console.log('Fibonacci Observable v2: ', sequenceArray);
+// const sequenceArray = [0];
+// fibonacciObservable2.subscribe((x) => sequenceArray.push(x));
+// console.log('Fibonacci Observable v2: ', sequenceArray);
 
 module.exports = {
   fibonacciObservable,

@@ -1,6 +1,6 @@
 const { observable } = require('./index.js');
 
-describe('Task 1.1.1', () => {
+describe('Task 1.1.2', () => {
   it('Returns the right value when subscribed and then completes', (done) => {
     observable.subscribe({
       next: (data) => {

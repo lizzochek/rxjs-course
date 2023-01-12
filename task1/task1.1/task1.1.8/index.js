@@ -6,7 +6,6 @@ const rx = require('rxjs');
 
 const rangePromise = (val, range) =>
   new Promise((resolve, reject) => {
-    // console.log(val, range[1], range[0], val <= range[0], val >= range[0]);
     if (val <= range[1] && val >= range[0]) {
       resolve('Range Promise resolved');
     } else {
@@ -15,14 +14,14 @@ const rangePromise = (val, range) =>
   });
 
 const rangePromiseObservable = rx.from(rangePromise(2, [1, 5]));
-rangePromiseObservable.subscribe((x) =>
-  console.log('Observable 1.8 resolved: ', x)
-);
+// rangePromiseObservable.subscribe((x) =>
+//   console.log('Observable 1.8 resolved: ', x)
+// );
 
 const rangeErrorPromiseObservable = rx.from(rangePromise(2, [3, 10]));
-rangeErrorPromiseObservable.subscribe({
-  error: (err) => console.log('Observable 1.8 error catched'),
-});
+// rangeErrorPromiseObservable.subscribe({
+//   error: (err) => console.log('Observable 1.8 error catched'),
+// });
 
 module.exports = {
   rangeErrorPromiseObservable,

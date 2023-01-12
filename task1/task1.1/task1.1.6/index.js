@@ -6,7 +6,7 @@ const numbers = rx.interval(1000);
 
 const intervalObservable = numbers.pipe(rx.take(5));
 
-intervalObservable.subscribe((x) => console.log('Observable 1.6: ', x));
+// intervalObservable.subscribe((x) => console.log('Observable 1.6: ', x));
 
 module.exports = {
   intervalObservable,
