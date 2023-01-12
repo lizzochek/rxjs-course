@@ -14,14 +14,14 @@ const rangePromise = (val, range) =>
   });
 
 const rangePromiseObservable = rx.from(rangePromise(2, [1, 5]));
-// rangePromiseObservable.subscribe((x) =>
-//   console.log('Observable 1.8 resolved: ', x)
-// );
+rangePromiseObservable.subscribe((x) =>
+  console.log('Observable 1.8 resolved: ', x)
+);
 
 const rangeErrorPromiseObservable = rx.from(rangePromise(2, [3, 10]));
-// rangeErrorPromiseObservable.subscribe({
-//   error: (err) => console.log('Observable 1.8 error catched'),
-// });
+rangeErrorPromiseObservable.subscribe({
+  error: (err) => console.log('Observable 1.8 error catched'),
+});
 
 module.exports = {
   rangeErrorPromiseObservable,

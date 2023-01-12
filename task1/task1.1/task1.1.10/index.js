@@ -32,10 +32,6 @@ const fibonacciIterator = (curNum) => {
   nextTerm = prevNum + curNum;
   prevNum = curNum;
   curNum = nextTerm;
-  if (nextTerm === 0) {
-    prevNum++;
-    return prevNum;
-  }
   return nextTerm;
 };
 
@@ -44,9 +40,10 @@ const fibonacciObservable2 = rx.generate({
   initialState: 1,
   condition: (x) => x < 6766,
   iterate: fibonacciIterator,
-  fibonacciObservable2Selector: (x) => x,
+  // fibonacciObservable2Selector: (x) => x,
 });
 
+// Comment before running a test
 // const sequenceArray = [0];
 // fibonacciObservable2.subscribe((x) => sequenceArray.push(x));
 // console.log('Fibonacci Observable v2: ', sequenceArray);

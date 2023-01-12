@@ -7,6 +7,7 @@ const someFunction = (value, callback) => {
 };
 const bindedCallback = rx.bindCallback(someFunction);
 const callbackObservable = bindedCallback(1);
+// Comment before running a test
 // callbackObservable.subscribe({
 //   next: (val) => console.log('Observable 1.5: ', val),
 // });

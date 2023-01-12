@@ -8,7 +8,7 @@ const myPromise = new Promise((resolve) => {
 });
 
 const promiseObservable = rx.from(myPromise);
-// promiseObservable.subscribe((x) => console.log('Observable 1.7: ', x));
+promiseObservable.subscribe((x) => console.log('Observable 1.7: ', x));
 
 module.exports = {
   promiseObservable,

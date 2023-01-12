@@ -8,6 +8,7 @@ const readStream = createReadStream('task1/task1.1/task1.1.4/text.txt', {
   encoding: 'utf-8',
 });
 const streamObservable = rx.from(readStream);
+// Comment before running a test
 // streamObservable.subscribe((x) => console.log('Observable 1.4:   ', x));
 
 module.exports = {
