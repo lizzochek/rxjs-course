@@ -12,3 +12,7 @@ const source = rx.interval(1000).pipe(
 );
 
 source.subscribe((x) => console.log('Observable 2.7.2: subscription 1: ', x));
+
+module.exports = {
+  source,
+};
