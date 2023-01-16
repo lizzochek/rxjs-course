@@ -13,10 +13,10 @@ const result = groupObservable.pipe(
   // rx.mergeMap((group) => group.pipe(rx.toArray())),
   // Display letter count
   rx.mergeMap((group) => {
-    let i = 1;
+    let i = 0;
     return group.pipe(
       rx.map((e) => {
-        i += (e.match('A') || []).length;
+        i += e.split(group.key)?.length - 1;
         return { letter: group.key, count: i };
       }),
       rx.takeLast(1)

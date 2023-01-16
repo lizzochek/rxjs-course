@@ -42,20 +42,29 @@ class DBIntegration {
   };
 
   dbWriteTransaction = (db, dataSource) => {
-    try {
-      // Open db
-      const res = db.open().pipe(
-        // Retry connection opening if it has failed (connection opening is retryable operation)
-        rx.retry(3)
-      );
-      res.subscribe((x) => console.log(x));
-      // Create a connection
-      const connection = new Connection();
-      // Write data
-      connection.write(dataSource).subscribe((x) => console.log(x));
-      // Close connection
-      connection.close().subscribe((x) => console.log(x));
+    console.dir(db.open());
+    let error;
+    let data = [];
+    dataSource.subscribe((x) => data.push(x));
+    // Create a connection
+    const connection = new Connection();
 
+    const res = rx
+      .concat(db.open(), connection.write(data), connection.close())
+      .pipe(
+        // Retry connection opening if it has failed (connection opening is retryable operation)
+        rx.retry(3),
+        rx.catchError(() => {
+          error = true;
+          return rx.of('Caught error');
+        })
+      )
+      .subscribe((x) => console.log(x));
+
+    if (error) {
+      // In case of errors, send negative result
+      return rx.of(new Result().error(db?.name));
+    } else {
       // If everything worked fine send positive result
       return (
         // For testing, we will habe transaction IDs the same
@@ -66,9 +75,6 @@ class DBIntegration {
           // Ensure Transaction lasts less than 1 sec
           .pipe(rx.timeout(1000))
       );
-    } catch (err) {
-      // In case of errors, send negative result
-      return rx.of(new Result().error(db?.name));
     }
   };
 }

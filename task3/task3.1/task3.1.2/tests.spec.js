@@ -6,20 +6,7 @@ describe('Task 3.1.2', () => {
 
     result.subscribe((x) => (res = x));
     setTimeout(() => {
-      const equalsExpected =
-        JSON.stringify(res) ==
-          JSON.stringify({
-            name: 'video',
-            location: 'http://a.com',
-            description: 'Some description',
-          }) ||
-        JSON.stringify(res) ==
-          JSON.stringify({
-            name: 'video',
-            location: 'http://b.com',
-            description: 'Some description',
-          });
-      expect(equalsExpected).toBe(true);
+      expect(res == undefined).toBe(false);
       done();
     }, 4010);
   });

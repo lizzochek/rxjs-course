@@ -9,15 +9,15 @@ const fs = require('fs');
 // If we just put observeOn, it will be enough, because it changes the thread only for the
 // observables coming after it
 
-const work1 = (x) => x + 10;
-const work2 = (x) => x + 20;
+const work1 = (x) => rx.of(x + 10);
+const work2 = (x) => rx.of(x + 20);
 
 const b = rx.from([4, 5, 6]);
 const a = rx.from([1, 2, 3]).pipe(
-  rx.map(work1),
-  // rx.subscribeOn(rx.asyncScheduler),
+  rx.mergeMap(work1),
   rx.observeOn(rx.asyncScheduler),
-  rx.map(work2)
+  rx.mergeMap(work2)
+  // rx.subscribeOn(rx.asyncScheduler),
 );
 
 const subscribeOnObservable = rx.merge(a, b);

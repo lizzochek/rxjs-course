@@ -13,9 +13,9 @@ const clientPreferences = rx.from([
 
 const switchObservable = clientPreferences.pipe(
   rx.switchMap((x) =>
-    rx.from([
-      { name: x.name, flavour: x.likesVanilla ? 'Vanilla' : 'Chocolate' },
-    ])
+    x.likesVanilla
+      ? rx.of(`${x.name} likes vanilla`)
+      : rx.of(`${x.name} likes chocolate`)
   )
 );
 

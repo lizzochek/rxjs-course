@@ -7,18 +7,9 @@ describe('Task 2.1.8', () => {
 
     setTimeout(() => {
       expect(res).toEqual([
-        {
-          flavour: 'Vanilla',
-          name: 'Jane',
-        },
-        {
-          flavour: 'Chocolate',
-          name: 'Anna',
-        },
-        {
-          flavour: 'Vanilla',
-          name: 'Markus',
-        },
+        'Jane likes vanilla',
+        'Anna likes chocolate',
+        'Markus likes vanilla',
       ]);
       done();
     }, 1010);

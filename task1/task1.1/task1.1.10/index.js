@@ -44,7 +44,7 @@ const fibonacciObservable2 = rx.generate({
 });
 
 // Comment before running a test
-// const sequenceArray = [0];
+// const sequenceArray = [prevNum];
 // fibonacciObservable2.subscribe((x) => sequenceArray.push(x));
 // console.log('Fibonacci Observable v2: ', sequenceArray);
 
